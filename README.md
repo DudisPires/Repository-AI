@@ -19,7 +19,25 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
           o menor tempo possível (minimizar o makespan).
           
 
-  O problema apresenta três níveis de dificuldade que devem ser resolvidos. 
+  - O problema apresenta três níveis de dificuldade que devem ser resolvidos. 
+  - Utilizei um algoritmo do tipo Memetico para a solução do problema proposto.
+
+## O que é um algoritmo Memetico?
+
+ - Um algoritmo memético é uma técnica de otimização que combina algoritmos genéticos (evolução populacional) com busca local (refinamento individual).
+
+📌 Estrutura básica:
+
+  1. População inicial é gerada.
+  
+  2. Seleção, cruzamento e mutação são aplicados.
+  
+  3. Cada indivíduo é melhorado com uma busca local.
+  
+  4. Repete-se até convergir ou atingir um critério de parada.
+
+
+![Evolução do Makespan](codigo-IA-exercicio3/evolucao_makespan.png)
 
 ---
 
