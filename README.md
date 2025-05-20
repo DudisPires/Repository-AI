@@ -37,7 +37,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
   4. Repete-se até convergir ou atingir um critério de parada.
 
 
-![Evolução do Makespan](codigo-IA-exercicio3/evolucao_makespan.png)
+                           ![Evolução do Makespan](codigo-IA-exercicio3/evolucao_makespan.png)
 
 ---
 
