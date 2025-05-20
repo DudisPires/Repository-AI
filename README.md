@@ -1,13 +1,10 @@
-# Repository-AI
-Repositório voltado para a matéria de Inteligência Artificial.
-
-# 🧩 PDF Merger – Python
+# :computer: Repository-AI 
 
 Esse repositório é voltado para a matéria Inteligência Artificial, do curso de Ciência da Computação. Durante o curso serão realizados exercícios e trabalhos com foco em algoritmos de importância para a área e temas como machine learning...
 
 ---
 
-## 📌 Problemas trabalhados 
+# 📌 Problemas trabalhados 
 # Alocação de tarefas em máquinas paralelas (Parallel Machine Scheduling)
 
   **Descrição:** 
@@ -23,7 +20,8 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 
 ---
 
-##🛠️ Tecnologias utilizadas
+# 🛠️ Tecnologias utilizadas
+
 ```
   Python 3.x
 
