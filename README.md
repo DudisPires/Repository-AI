@@ -5,9 +5,11 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 ---
 
 # 📌 Problemas trabalhados 
-# Alocação de tarefas em máquinas paralelas (Parallel Machine Scheduling)
+## - Alocação de tarefas em máquinas paralelas (Parallel Machine Scheduling)
 
   **Descrição:** 
+
+  
                 Suponha que você tenha m tarefas com tempos de
           processamento diferentes. E tenha n máquinas idênticas 
           (ou seja, qualquer tarefa pode ser executada em qualquer 
@@ -15,6 +17,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
           máquinas de forma que a máquina com maior carga de trabalho, 
           isto é, a máquina que termina por último (makespan) tenha 
           o menor tempo possível (minimizar o makespan).
+          
 
   O problema apresenta três níveis de dificuldade que devem ser resolvidos. 
 
