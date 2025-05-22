@@ -44,7 +44,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 
 ## - Modelo de recomendação de filmes personalizado
 
-    **Descrição:** 
+  **Descrição:** 
 
         Nesse trabalho foi desenvolvido um algoritmo para recomendação de filmes 
         baseada nas caracteristicas preferidas pelo usuário. Através de um algo-
