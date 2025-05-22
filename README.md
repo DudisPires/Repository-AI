@@ -42,6 +42,40 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 
    ![Evolução do Makespan](codigo-IA-exercicio3/evolucao_makespan.png)
 
+## - Modelo de recomendação de filmes personalizado
+
+    **Descrição:** 
+
+        Nesse trabalho foi desenvolvido um algoritmo para recomendação de filmes 
+        baseada nas caracteristicas preferidas pelo usuário. Através de um algo-
+        ritmo de associação (baseado em Apriori, chamado MaxEclat) e uma
+        base de dados ( Base de dados do IMdB ) com mais de 30 mil filmes. Inici-
+        almente os dados foram pré-processados para retirar erros ou partes indesejadas
+        como :
+
+          - Colunas extras ( premiações , locais de gravação)
+          - Dados incoerentes
+          - Dados em branco 
+
+📌 Estrutura básica:
+
+  1. Dados passam por um pré-processamento.
+  
+  2. Análise dos dados obtidos na busca de erros ou incoerencias.
+  
+  3. Os dados são fornecidos ao algoritmo de associação (MaxEclat) para aprendizado.
+  
+  4.  ....
+
+## Resultados do processamento 
+
+  ![Distribuição das notas do IMdB](machine-learning/pre-processamento/grafico_1.png)
+
+---
+
+  ![Idiomas mais frequentes nos filmes do IMdB](machine-learning/pre-processamento/grafico_2.png)
+  
+
 
 ---
 
