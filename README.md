@@ -5,7 +5,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 ---
 
 # 📌 Problemas trabalhados 
-## - Alocação de tarefas em máquinas paralelas (Parallel Machine Scheduling)
+## - 1) Alocação de tarefas em máquinas paralelas (Parallel Machine Scheduling)
 
   **Descrição:** 
 
@@ -42,7 +42,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 
    ![Evolução do Makespan](codigo-IA-exercicio3/evolucao_makespan.png)
 
-## - Modelo de recomendação de filmes personalizado
+## - 2) Modelo de recomendação de filmes personalizado
 
   **Descrição:** 
 
