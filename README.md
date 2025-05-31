@@ -53,7 +53,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
         almente os dados foram pré-processados para retirar erros ou partes indesejadas
         como :
 
-          - Colunas extras ( premiações , locais de gravação)
+          - Colunas extras ( premiações , locais de gravação ...)
           - Dados incoerentes
           - Dados em branco 
 
