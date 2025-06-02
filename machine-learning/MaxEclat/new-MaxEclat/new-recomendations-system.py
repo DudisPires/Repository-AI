@@ -2,6 +2,9 @@ import pandas as pd
 import ast
 from tabulate import tabulate 
 import textwrap
+import squarify
+from collections import Counter
+import matplotlib.pyplot as plt
 
 def safe_eval(x):
     try:
@@ -78,9 +81,53 @@ def process_itemset_columns(df):
     df['Itemset'] = df.apply(lambda row: set(row.Gêneros_list or []) | set(row.Stars_list or []) | set(row.Directors_list or []), axis=1)
     df['title_normalized'] = df['title'].astype(str).str.strip().str.lower()
 
+def plot_itemset_treemap(relevant_itemsets):
+    item_counter = Counter()
+    for info in relevant_itemsets:
+        item_counter.update(info['itemset'])
+
+    labels = list(item_counter.keys())
+    sizes = list(item_counter.values())
+
+    plt.figure(figsize=(12, 7))
+    squarify.plot(sizes=sizes, label=labels, alpha=0.8)
+    plt.axis('off')
+    plt.title("Composição dos conjuntos frequentes recomendados")
+    caminho_grafico = '/home/eduardo-monteiro/faculdade/IA/Repository-AI/graficos_imdb/composicao_conjuntos.png'
+    plt.savefig(caminho_grafico, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"Gráfico 'Composição dos Conjuntos' salvo como '{caminho_grafico}'")
+
+
+def plot_affinity_vs_rating(relevant_itemsets, df, user_titles):
+    affinities = []
+    avg_ratings = []
+
+    for info in relevant_itemsets:
+        itemset = info['itemset']
+        candidates_df = get_movies_with_itemset(df, itemset)
+        new_recs = candidates_df[~candidates_df['title_normalized'].isin(user_titles)]
+
+        if not new_recs.empty:
+            affinities.append(info['score'])
+            avg_ratings.append(new_recs['rating_imdb'].mean())
+
+    plt.figure(figsize=(8, 5))
+    plt.scatter(affinities, avg_ratings, alpha=0.7)
+    plt.xlabel("Afinidade com o perfil")
+    plt.ylabel("Média do rating IMDb dos recomendados")
+    plt.title("Afinidade vs Qualidade das Recomendações")
+    plt.grid(True)
+    plt.tight_layout()
+    caminho_grafico = '/home/eduardo-monteiro/faculdade/IA/Repository-AI/graficos_imdb/afinidade_vs_rating.png'
+    plt.savefig(caminho_grafico, dpi=300, bbox_inches='tight')
+    plt.close()
+    print(f"\nGráfico 'Afinidade vs Rating' salvo como '{caminho_grafico}'\n")
+
+
 def main():
     try:
-        main_db_path = 'machine-learning/MaxEclat/new-MaxEclat/world_imdb_movies_preprocessed.csv'
+        main_db_path = '/home/eduardo-monteiro/faculdade/IA/Repository-AI/machine-learning/MaxEclat/new-MaxEclat/world_imdb_movies_preprocessed.csv'
         df = pd.read_csv(main_db_path)
     except Exception as e:
         print(f"Erro ao carregar a base principal: {e}")
@@ -99,8 +146,8 @@ def main():
     maximal_itemsets_global = max_eclat(transactions, min_support)
     print(f"✅ {len(maximal_itemsets_global)} conjuntos frequentes encontrados.\n")
 
-    user_file = input("📂 Digite o nome do arquivo CSV dos seus filmes assistidos:\n> ")
-    user_path = 'machine-learning/MaxEclat/new-MaxEclat/' + user_file
+    user_file = input("📂 Digite o nome do arquivo CSV dos seus filmes assistidos ou o path caso o arquivo esteja em outro diretorio:\n> ")
+    user_path = '/home/eduardo-monteiro/faculdade/IA/Repository-AI/machine-learning/MaxEclat/new-MaxEclat/' + user_file
 
     try:
         colunas_user = ['title', 'year', 'rating_imdb', 'genre', 'language', 'star', 'director']
@@ -164,6 +211,11 @@ def main():
 
     if count == 0:
         print("\n🚫 Nenhuma recomendação disponível.")
+
+    plot_itemset_treemap(relevant_itemsets)
+    plot_affinity_vs_rating(relevant_itemsets, df, user_titles)
+
+
 
 if __name__ == "__main__":
     main()
