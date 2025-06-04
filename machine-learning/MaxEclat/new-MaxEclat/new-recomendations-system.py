@@ -6,6 +6,10 @@ import squarify
 from collections import Counter
 import matplotlib.pyplot as plt
 
+
+#Interpreta uma string como uma lista de forma segura (ex: "[Drama, Action]" → ['Drama', 'Action']). 
+#Evita o uso de eval por questões de segurança. Lida com erros comuns e retorna uma lista limpa.
+
 def safe_eval(x):
     try:
         evaluated = ast.literal_eval(x)
@@ -23,10 +27,14 @@ def safe_eval(x):
                 return [x.strip().replace("'", "").replace('"', '')]
         return []
 
+
+# Calcula o suporte, sera usado para comparação com o suporte mínimo definido.
 def support(itemset, transactions):
     if not transactions:
         return 0
     return sum(1 for t in transactions if itemset.issubset(t)) / len(transactions)
+
+
 
 def max_eclat_recursive(prefix, items, transactions, min_sup, maximal_itemsets_dict):
     for i in range(len(items)):
@@ -63,8 +71,13 @@ def max_eclat(transactions, min_sup):
             truly_maximal_itemsets.append(collected_itemsets[i])
     return truly_maximal_itemsets
 
+# Agora  ele acessa a base de dados e retorna todos os filmes que possuem todos os elementos do itemset para posterior 
+# possisvel recomendação.
+
 def get_movies_with_itemset(df, itemset):
     return df[df['Itemset'].apply(lambda s: itemset.issubset(s))]
+
+#Cria o perfil do usuário a partir dos filmes assistidos,
 
 def get_user_profile(df):
     profile = set()
@@ -73,6 +86,9 @@ def get_user_profile(df):
             profile.update(row.Itemset)
     return profile
 
+#  Processa o DataFrame para criar colunas de listas de gêneros, estrelas e diretores, cria uma nova coluna 
+#  'Itemset' que combina esses elementos,
+
 def process_itemset_columns(df):
     df['Gêneros_list'] = df['genre'].apply(safe_eval)
     df['Stars_list'] = df['star'].apply(safe_eval)
@@ -80,6 +96,8 @@ def process_itemset_columns(df):
     
     df['Itemset'] = df.apply(lambda row: set(row.Gêneros_list or []) | set(row.Stars_list or []) | set(row.Directors_list or []), axis=1)
     df['title_normalized'] = df['title'].astype(str).str.strip().str.lower()
+
+# Visualização 
 
 def plot_itemset_treemap(relevant_itemsets):
     item_counter = Counter()
