@@ -73,11 +73,13 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 
 ---
 
-  ![Idiomas mais frequentes nos filmes do IMdB](machine-learning/pre-processamento/grafico_2.png)
+  ![Idiomas mais frequentes nos filmes do IMdB](graficos_imdb/grafico_idiomas_frequentes.png)
   
 
-
 ---
+
+  ![Composição dos conjuntos de filmes](graficos_imdb/composicao_conjuntos.png)
+
 
 # 🛠️ Tecnologias utilizadas
 
