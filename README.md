@@ -67,7 +67,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
   
   4.  ....
 
-## Resultados do processamento 
+## :chart_with_downwards_trend: Resultados do processamento 
 
   ![Distribuição das notas do IMdB](graficos_imdb/grafico_distribuicao_notas.png)
 
