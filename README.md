@@ -69,7 +69,7 @@ Esse repositório é voltado para a matéria Inteligência Artificial, do curso 
 
 ## Resultados do processamento 
 
-  ![Distribuição das notas do IMdB](machine-learning/pre-processamento/grafico_1.png)
+  ![Distribuição das notas do IMdB](graficos_imdb/grafico_distribuicao_notas.png)
 
 ---
 
