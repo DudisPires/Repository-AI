@@ -23,9 +23,6 @@ model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2') #modelo d
 
 
 def carregar_ou_processar_dados():
-    """
-    Carrega, processa e treina um novo modelo com classes agrupadas e SMOTE.
-    """
     if all(os.path.exists(f) for f in [MODEL_FILE, ENCODER_FILE]):
         print("Carregando modelo final do cache...")
         clf = joblib.load(MODEL_FILE)
