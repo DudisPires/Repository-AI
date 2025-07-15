@@ -1,0 +1,27 @@
+Exemplos para a Classe: Para todos os públicos
+1. Drama Esportivo Inspirador
+Texto (Inglês): "An underdog high school basketball team from a small town, led by a determined new coach, must overcome their personal differences and lack of resources to compete for the state championship. The story focuses on teamwork, perseverance, and community spirit."
+Saída Adequada: Para todos os públicos
+2. Aventura de Ficção Científica Leve
+Texto (Inglês): "A resourceful teenage girl discovers a small, friendly robot that crash-landed in her backyard. She soon finds out the robot is being pursued by a powerful corporation that wants to use its technology. Together, they must outsmart the corporate agents and help the robot return home."
+Saída Adequada: Para todos os públicos
+3. Comédia Romântica
+Texto (Inglês): "A cynical food critic and a relentlessly optimistic chef are forced to work together on a cookbook. Despite their opposite personalities leading to comical clashes in the kitchen, they slowly discover they might be the perfect recipe for each other."
+Saída Adequada: Para todos os públicos
+4. Documentário sobre a Natureza
+Texto (Inglês): "This documentary follows a family of emperor penguins through the harsh Antarctic winter. Narrated with a focus on family bonds and the challenges of survival, it captures the breathtaking beauty and struggle of life in one of the world's most extreme environments."
+Saída Adequada: Para todos os públicos
+
+Exemplos para a Classe: Adulto
+1. Suspense Psicológico
+Texto (Inglês): "A successful author's life unravels when a mysterious stranger accuses him of plagiarizing his life story. As the stranger's psychological torment intensifies, the line between reality and fiction blurs, leading to paranoia, obsession, and a shocking, violent climax."
+Saída Adequada: Adulto
+2. Drama Policial Intenso
+Texto (Inglês): "Two detectives with conflicting methods hunt a serial killer who stages his victims in elaborate, grotesque tableaus. The investigation drags them into the city's corrupt underworld, featuring graphic crime scenes and a pervasive sense of dread."
+Saída Adequada: Adulto
+3. Filme de Guerra Realista
+Texto (Inglês): "During the height of a brutal war, a young soldier is tasked with a near-suicidal mission through enemy territory. The film depicts the grim realities of conflict with unflinching, graphic sequences of combat, intense suffering, and the psychological toll of warfare."
+Saída Adequada: Adulto
+4. Ficção Científica Distópica
+Texto (Inglês): "In a dystopian future where human consciousness can be digitized and transferred between bodies, a former soldier is hired to solve a high-profile murder. His investigation uncovers a conspiracy that challenges the very nature of identity and mortality, involving intense and bloody action sequences."
+Saída Adequada: Adulto
