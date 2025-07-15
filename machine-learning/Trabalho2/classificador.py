@@ -27,11 +27,11 @@ def carregar_ou_processar_dados():
     Carrega, processa e treina um novo modelo com classes agrupadas e SMOTE.
     """
     if all(os.path.exists(f) for f in [MODEL_FILE, ENCODER_FILE]):
-        print("🔁 Carregando modelo final do cache...")
+        print("Carregando modelo final do cache...")
         clf = joblib.load(MODEL_FILE)
         le = joblib.load(ENCODER_FILE)
     else:
-        print("🧠 Treinando novo modelo com agrupamento de classes e SMOTE...")
+        print(" Treinando novo modelo com agrupamento de classes e SMOTE...")
 
         try:
             df = pd.read_csv(CSV_FILE)
@@ -43,7 +43,7 @@ def carregar_ou_processar_dados():
         df.columns = ['plot', 'rating']
         df.dropna(subset=['plot', 'rating'], inplace=True)
 
-        print("🔄️ Agrupando classes em 'Livre para todos os públicos' 'Para a familia' e 'Adulto'...")
+        print(" Agrupando classes em 'Livre para todos os públicos' 'Para a familia' e 'Adulto'...")
         mapeamento_classes = {
             'All': 'Livre para todos os publicos',
             '7+': 'Para a familia',
@@ -61,22 +61,22 @@ def carregar_ou_processar_dados():
         le = LabelEncoder()
         y = le.fit_transform(df['nova_rating'])         # codificar os novos rótulos 
 
-        print(f"\n🔎 Gerando embeddings para {len(df)} sinopses...")
+        print(f"\n Gerando embeddings para {len(df)} sinopses...")
         embeddings = model.encode(df['plot'].tolist(), show_progress_bar=True)
 
        
         X_train, X_test, y_train, y_test = train_test_split(embeddings, y, test_size=0.2, random_state=42, stratify=y)  # dividir dados para treino e teste
 
-        print(f"\n⚖️  Aplicando SMOTE para balancear as classes no conjunto de treino...")
+        print(f"\n  Aplicando SMOTE para balancear as classes no conjunto de treino...")
         smote = SMOTE(random_state=42)
         X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
         
-        print("⚙️  Treinando modelo LGBMClassifier com dados balanceados...")
+        print("  Treinando modelo LGBMClassifier com dados balanceados...")
         clf = LGBMClassifier(random_state=42) 
         clf.fit(X_train_resampled, y_train_resampled)
-        print("✅ Treinamento concluído!")
+        print("Treinamento concluído!")
 
-        print("\n📊 Relatório de Classificação Final:")
+        print("\n Relatório de Classificação Final:")
         y_pred = clf.predict(X_test)
         print(classification_report(y_test, y_pred, target_names=le.classes_))
 
@@ -89,12 +89,12 @@ def carregar_ou_processar_dados():
         plt.title("Matriz de Confusão Final (com SMOTE)")                       # gerando as imagens 
         plt.tight_layout()
         plt.savefig("matriz_confusao_final.png")
-        print("\n🖼️ Matriz de confusão salva como 'matriz_confusao_final.png'")
+        print("\n Matriz de confusão salva como 'matriz_confusao_final.png'")
 
-        print("\n💾 Salvando modelo e encoder finais...")
+        print("\n Salvando modelo e encoder finais...")
         joblib.dump(clf, MODEL_FILE)
         joblib.dump(le, ENCODER_FILE)                           #salvando os resultados para evitar perda de tempo 
-        print("✅ Processo concluído!")
+        print(" Processo concluído!")
 
     return clf, le
 
@@ -110,11 +110,11 @@ if __name__ == "__main__":
 
     if clf and le:
         while True:
-            sinopse = input("\n📝 Digite uma sinopse para prever a faixa etária (ou 'sair'): ").strip()
+            sinopse = input("\n Digite uma sinopse para prever a faixa etária (ou 'sair'): ").strip()
             if sinopse.lower() == "sair":
                 break
             if sinopse:
                 predicao = prever_faixa_etaria(sinopse, clf, le)
-                print(f"🎯 Faixa etária prevista: {predicao}")
+                print(f" Faixa etária prevista: {predicao}")
             else:
                 print("Por favor, digite uma sinopse.")
